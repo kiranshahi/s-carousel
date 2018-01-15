@@ -24,4 +24,15 @@ $(document).ready(function(){
         }
     });
 
+    setInterval(function(){
+        var currentSlide = $('.active');
+        var nextSlide = currentSlide.next('.mySlides');
+        if (nextSlide.length) {
+        	nextSlide.addClass('active');    
+        	currentSlide.removeClass('active');	
+        } else {
+            $('.mySlides').first().addClass('active');    
+        	currentSlide.removeClass('active');
+        }
+    }, 3000);
 });
