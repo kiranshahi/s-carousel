@@ -1,29 +1,30 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+    var interval;
+
+    var container = $('.slideshow-container');
     
-    $('.next-btn').on('click', function(){
+    startSlider();
+
+    $('.next-btn').on('click', function () {
         var sliderSelecter = '.mySlides';
         slideNext(sliderSelecter);
     });
 
-    $('.prev-btn').on('click', function() {
+    $('.prev-btn').on('click', function () {
         var sliderSelecter = '.mySlides';
         slidePrev(sliderSelecter);
     });
-
-    setInterval(function(){
-        var sliderSelecter = '.mySlides';
-        slideNext(sliderSelecter);
-    }, 3000);
 
     function slideNext(sliderSelecter) {
         var currentSlide = $('.active');
         var nextSlide = currentSlide.next(sliderSelecter);
         if (nextSlide.length) {
-        	nextSlide.addClass('active');    
-        	currentSlide.removeClass('active');	
+            nextSlide.addClass('active');
+            currentSlide.removeClass('active');
         } else {
-            $(sliderSelecter).first().addClass('active');    
-        	currentSlide.removeClass('active');
+            $(sliderSelecter).first().addClass('active');
+            currentSlide.removeClass('active');
         }
     }
 
@@ -31,11 +32,27 @@ $(document).ready(function(){
         var currentSlide = $('.active');
         var prevSlide = currentSlide.prev(sliderSelecter);
         if (prevSlide.length) {
-        	prevSlide.addClass('active');
-        	currentSlide.removeClass('active');
+            prevSlide.addClass('active');
+            currentSlide.removeClass('active');
         } else {
-            $(sliderSelecter).last().addClass('active');    
-        	currentSlide.removeClass('active');
+            $(sliderSelecter).last().addClass('active');
+            currentSlide.removeClass('active');
         }
     }
+
+    function startSlider() {
+        interval = setInterval(function () {
+            var sliderSelecter = '.mySlides';
+            slideNext(sliderSelecter);
+        }, 300);
+    }
+
+    function pauseSlider() {
+        clearInterval(interval);
+    }
+
+    container
+    .on('mouseenter', pauseSlider)
+	.on('mouseleave', startSlider);
+
 });
