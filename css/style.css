@@ -1,0 +1,30 @@
+.mySlides {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    font-size:20px;
+    padding-top: 10px;
+    background-color: rgba(255,255,255,0.3);
+}
+
+.prev-btn {
+    left: 0%;
+}
+
+.next-btn {
+    right: 0%;
+}
+
+.next-btn.disable, .prev-btn.disable {
+    cursor: default;
+    color: rgba(116,116,116,0.4);
+}
