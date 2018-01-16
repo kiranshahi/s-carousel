@@ -2,7 +2,7 @@
 
     $.fn.scarousel = function () {
         var settings = $.extend({
-            sliderWrapper: '.mySlides'
+            slideItem: '.mySlides'
         });
         var interval;
 
@@ -18,24 +18,24 @@
 
         function slideNext() {
             var currentSlide = this.$('.active');
-            var nextSlide = currentSlide.next(settings.sliderWrapper);
+            var nextSlide = currentSlide.next(settings.slideItem);
             if (nextSlide.length) {
                 nextSlide.addClass('active');
                 currentSlide.removeClass('active');
             } else {
-                $(settings.sliderWrapper).first().addClass('active');
+                $(settings.slideItem).first().addClass('active');
                 currentSlide.removeClass('active');
             }
         }
 
         function slidePrev() {
             var currentSlide = this.$('.active');
-            var prevSlide = currentSlide.prev(settings.sliderWrapper);
+            var prevSlide = currentSlide.prev(settings.slideItem);
             if (prevSlide.length) {
                 prevSlide.addClass('active');
                 currentSlide.removeClass('active');
             } else {
-                $(settings.sliderWrapper).last().addClass('active');
+                $(settings.slideItem).last().addClass('active');
                 currentSlide.removeClass('active');
             }
         }
