@@ -44,7 +44,7 @@ $(document).ready(function () {
         interval = setInterval(function () {
             var sliderSelecter = '.mySlides';
             slideNext(sliderSelecter);
-        }, 300);
+        }, 3000);
     }
 
     function pauseSlider() {
