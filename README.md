@@ -5,4 +5,4 @@ Simple carousel built as jQuery plguin for personal use.
 
     $('.slideshow-container').scarousel(sliderWrapper: '.mySlides');
 
-[DEMO](kirans.me/s-carousel/)
+[DEMO](https://kirans.me/s-carousel/)
